@@ -37,8 +37,10 @@ AMS / WMS（系统服务核心）
 Framework-Source-Note/
 ├── README.md           # 本文件
 ├── binder/             # Binder 机制：概述、驱动、Proxy/Stub、一次通信全流程
-├── handler/            # Handler 消息机制：MessageQueue、Looper、同步屏障
-├── ams-wms/            # AMS/WMS 核心服务
+├── handler/            # Handler 消息机制：MessageQueue、Looper、同步屏障、IdleHandler
+├── ams-wms/            # AMS/WMS 核心服务、Choreographer 渲染
+├── view/               # View 体系：事件分发、绘制流程
+├── classloader/        # 类加载机制、双亲委派、热修复
 └── assets/             # 图片、时序图
 ```
 
@@ -50,10 +52,14 @@ Framework-Source-Note/
 | 02 | binder | 《一次 Binder 通信的完整流程》 | ✅ 已发布 |
 | 03 | binder | 《Binder 驱动层深入》 | ✅ 已发布 |
 | 04 | handler | 《Handler 消息机制：从 Looper 到 MessageQueue》 | ✅ 已发布 |
-| 05 | handler | 《同步屏障与异步消息》 | ✅ 已发布 |
-| 06 | ams-wms | 《AMS 启动流程解析》 | ✅ 已发布 |
-| 07 | ams-wms | 《WMS 窗口管理解析》 | ✅ 已发布 |
-| 08 | ams-wms | 《Choreographer 与渲染机制》 | ✅ 已发布 |
+| 05 | handler | 《消息队列与 IdleHandler》 | ✅ 已发布 |
+| 06 | handler | 《同步屏障与异步消息》 | ✅ 已发布 |
+| 07 | ams-wms | 《AMS 启动流程解析》 | ✅ 已发布 |
+| 08 | ams-wms | 《WMS 窗口管理解析》 | ✅ 已发布 |
+| 09 | ams-wms | 《Choreographer 与渲染机制》 | ✅ 已发布 |
+| 10 | view | 《View 事件分发机制》 | ✅ 已发布 |
+| 11 | view | 《View 绘制流程：measure / layout / draw》 | ✅ 已发布 |
+| 12 | classloader | 《类加载机制：ClassLoader 与双亲委派》 | ✅ 已发布 |
 
 ## 🚀 阅读建议
 
