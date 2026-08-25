@@ -34,38 +34,29 @@ Choreographer 按优先级管理三类回调：
 
 每一帧的典型流程：
 
-```
-Vsync 到来
-   │
-   ▼
-Choreographer 收到信号
-   │
-   ├── 1. 处理输入事件（CALLBACK_INPUT）
-   ├── 2. 执行动画（CALLBACK_ANIMATION）
-   └── 3. 执行遍历：measure → layout → draw（CALLBACK_TRAVERSAL）
-   │
-   ▼
-SurfaceFlinger 合成 → 屏幕刷新
+```mermaid
+flowchart TB
+    A["Vsync 到来"] --> B["Choreographer 收到信号"]
+    B --> C["1. 处理输入事件<br/>(CALLBACK_INPUT)"]
+    C --> D["2. 执行动画<br/>(CALLBACK_ANIMATION)"]
+    D --> E["3. 遍历：measure → layout → draw<br/>(CALLBACK_TRAVERSAL)"]
+    E --> F["SurfaceFlinger 合成 → 屏幕刷新"]
 ```
 
 ## 四、与同步屏障的关系
 
 上一篇文章讲了同步屏障，这里把它们串起来：
 
-```
-Vsync 信号
-   │
-   ▼
-Choreographer 往 MessageQueue 插入「同步屏障」
-   │
-   ▼
-发送「执行绘制」的异步消息
-   │
-   ▼
-异步消息穿越屏障，立即执行绘制
-   │
-   ▼
-绘制完成，移除屏障
+```mermaid
+sequenceDiagram
+    participant V as Vsync
+    participant C as Choreographer
+    participant Q as MessageQueue
+    V->>C: 信号到达
+    C->>Q: 插入「同步屏障」
+    C->>Q: 发送「执行绘制」异步消息
+    Q->>Q: 异步消息穿越屏障，立即执行绘制
+    C->>Q: 绘制完成，移除屏障
 ```
 
 **完整逻辑**：为了保证绘制任务不被普通消息（如网络回调、Handler 消息）阻塞，Choreographer 在每帧开始时插入同步屏障，让绘制这条**异步消息**优先执行。
@@ -74,27 +65,16 @@ Choreographer 往 MessageQueue 插入「同步屏障」
 
 把前面几篇的知识串起来，一次 View 绘制的完整流程：
 
-```
-Vsync
-   │
-   ▼
-Choreographer（调度）
-   │
-   ▼
-ViewRootImpl.performTraversals()
-   │
-   ├── measure（测量）
-   ├── layout（布局）
-   └── draw（绘制）
-         │
-         ▼
-    Canvas 绘制到 Surface
-         │
-         ▼
-   SurfaceFlinger 合成
-         │
-         ▼
-   屏幕显示
+```mermaid
+flowchart TB
+    A["Vsync"] --> B["Choreographer（调度）"]
+    B --> C["ViewRootImpl.performTraversals()"]
+    C --> D["measure（测量）"]
+    D --> E["layout（布局）"]
+    E --> F["draw（绘制）"]
+    F --> G["Canvas 绘制到 Surface"]
+    G --> H["SurfaceFlinger 合成"]
+    H --> I["屏幕显示"]
 ```
 
 **关键理解**：这一整条链路，都必须在**一帧（16.6ms）内**完成。任何一步超时，就会掉帧。

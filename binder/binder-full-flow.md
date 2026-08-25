@@ -123,19 +123,22 @@ Server 执行完，结果通过 `reply` 写回：
 
 ## 七、一次调用的完整时序图
 
-```
-Client(Proxy)          binder 驱动          Server(Stub)
-    │                      │                    │
-    │ 1. 序列化参数到 Parcel │                    │
-    │ 2. transact() ──────→ │                    │
-    │                      │ 3. 拷贝数据到内核    │
-    │                      │ 4. 唤醒 Server ───→ │
-    │ 5. 阻塞等待           │                    │ 6. onTransact()
-    │                      │                    │ 7. 拆包、执行业务
-    │                      │                    │ 8. 结果写入 reply
-    │                      │ ← 9. 拷贝 reply ──── │
-    │ 10. 醒来、读结果      │                    │
-    │ 11. 返回给调用方      │                    │
+```mermaid
+sequenceDiagram
+    participant C as Client(Proxy)
+    participant D as binder驱动
+    participant S as Server(Stub)
+    C->>C: 1. 序列化参数到 Parcel
+    C->>D: 2. transact()
+    D->>D: 3. 拷贝数据到内核
+    D->>S: 4. 唤醒 Server
+    Note over C: 5. 阻塞等待
+    S->>S: 6. onTransact()
+    S->>S: 7. 拆包、执行业务
+    S->>S: 8. 结果写入 reply
+    S->>D: 9. 拷贝 reply 到内核
+    D->>C: 10. 唤醒 Client
+    C->>C: 11. 读结果、返回调用方
 ```
 
 ## 八、几个关键细节

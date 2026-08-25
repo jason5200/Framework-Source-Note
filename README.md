@@ -5,7 +5,9 @@
 **Android Framework 源码精读笔记 —— Binder / Handler / AMS / WMS**
 
 [![Stars](https://img.shields.io/github/stars/jason5200/Framework-Source-Note?style=social)](https://github.com/jason5200/Framework-Source-Note)
+[![Forks](https://img.shields.io/github/forks/jason5200/Framework-Source-Note?style=social)](https://github.com/jason5200/Framework-Source-Note)
 [![License](https://img.shields.io/github/license/jason5200/Framework-Source-Note)](https://github.com/jason5200/Framework-Source-Note)
+[![Visitors](https://komarev.com/ghpvc/?username=jason5200&repo=Framework-Source-Note&color=blueviolet)](https://github.com/jason5200/Framework-Source-Note)
 
 </div>
 

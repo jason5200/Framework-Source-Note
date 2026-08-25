@@ -40,14 +40,17 @@ Window（窗口）          ← 抽象概念，一个界面区域
 
 常见的窗口层级（从下到上）：
 
-```
-底部
- ├── 壁纸窗口
- ├── 应用窗口（普通 Activity）
- ├── 子窗口（PopupWindow、Dialog）
- ├── 系统窗口（Toast、状态栏）
- ├── 输入法窗口（IME）
- └── 顶部（如权限弹窗）
+```mermaid
+graph TB
+    A["顶部（权限弹窗）"]
+    B["输入法窗口（IME）"]
+    C["系统窗口（Toast、状态栏）"]
+    D["子窗口（PopupWindow、Dialog）"]
+    E["应用窗口（普通 Activity）"]
+    F["壁纸窗口"]
+    A --> B --> C --> D --> E --> F
+    style A fill:#334155,stroke:#38bdf8
+    style F fill:#1e293b,stroke:#475569
 ```
 
 WMS 用一个 **WindowList**（按 Z 序排序的列表）维护所有窗口，每次变化都重排。

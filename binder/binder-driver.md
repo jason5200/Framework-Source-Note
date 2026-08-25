@@ -70,35 +70,21 @@ App 层的一切 Binder 操作，最终都变成对 `/dev/binder` 的 `ioctl` �
 
 以「Client 调用 Server 的 `add(1,2)`」为例，看内核态发生什么：
 
-```
-1. Client 调用 transact()
-        │
-        ▼
-2. 用户态 → ioctl(BINDER_WRITE_READ)
-        │
-        ▼
-3. 驱动把数据 copy_from_user 到内核 buffer（第 1 次也是唯一 1 次拷贝）
-        │
-        ▼
-4. 驱动找到目标 binder_node，把请求挂到 Server 的待处理队列
-        │
-        ▼
-5. 唤醒 Server 的 binder 线程
-        │
-        ▼
-6. Client 阻塞等待（wait_for_completion）
-        │
-        ▼
-7. Server 线程醒来，通过 mmap 直接读内核 buffer，执行 add(1,2)
-        │
-        ▼
-8. Server 把结果写回（copy_to_user 或直接通过 mmap 写回）
-        │
-        ▼
-9. 驱动唤醒 Client
-        │
-        ▼
-10. Client 拿到结果 3
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant K as 内核(binder驱动)
+    participant S as Server
+    C->>C: 1. transact()
+    C->>K: 2. ioctl(BINDER_WRITE_READ)
+    K->>K: 3. copy_from_user 到内核 buffer
+    K->>K: 4. 找到 binder_node，挂到待处理队列
+    K->>S: 5. 唤醒 Server 线程
+    Note over C: 6. 阻塞等待
+    S->>S: 7. mmap 读 buffer，执行 add(1,2)
+    S->>K: 8. 结果写回
+    K->>C: 9. 唤醒 Client
+    C->>C: 10. 拿到结果 3
 ```
 
 ## 六、驱动层的安全机制

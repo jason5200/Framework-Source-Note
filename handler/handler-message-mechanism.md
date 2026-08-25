@@ -75,22 +75,14 @@ handler.post {
 
 内部流程：
 
-```
-handler.post(Runnable)
-    │
-    ▼
-把 Runnable 包装成 Message（callback 字段 = runnable）
-    │
-    ▼
-MessageQueue.enqueueMessage(msg)   // 按时间顺序插入队列
-    │
-    ▼
-Looper.loop() 取出消息
-    │
-    ▼
-dispatchMessage(msg)
-    ├── 如果 msg.callback != null → 执行 callback（即 runnable）
-    ├── 否则 → 调用 handler.handleMessage(msg)
+```mermaid
+flowchart TB
+    A["handler.post(Runnable)"] --> B["包装成 Message<br/>(callback = runnable)"]
+    B --> C["MessageQueue.enqueueMessage()<br/>按时间排序插入"]
+    C --> D["Looper.loop() 取出消息"]
+    D --> E{"msg.callback != null ?"}
+    E -->|是| F["执行 callback（runnable）"]
+    E -->|否| G["调用 handleMessage(msg)"]
 ```
 
 ## 五、Handler 如何实现线程切换
