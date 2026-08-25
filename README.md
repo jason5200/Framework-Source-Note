@@ -51,15 +51,21 @@ Framework-Source-Note/
 | 01 | binder | 《Binder 机制总览：为什么 Android 用它做 IPC》 | ✅ 已发布 |
 | 02 | binder | 《一次 Binder 通信的完整流程》 | ✅ 已发布 |
 | 03 | binder | 《Binder 驱动层深入》 | ✅ 已发布 |
-| 04 | handler | 《Handler 消息机制：从 Looper 到 MessageQueue》 | ✅ 已发布 |
-| 05 | handler | 《消息队列与 IdleHandler》 | ✅ 已发布 |
-| 06 | handler | 《同步屏障与异步消息》 | ✅ 已发布 |
-| 07 | ams-wms | 《AMS 启动流程解析》 | ✅ 已发布 |
-| 08 | ams-wms | 《WMS 窗口管理解析》 | ✅ 已发布 |
-| 09 | ams-wms | 《Choreographer 与渲染机制》 | ✅ 已发布 |
-| 10 | view | 《View 事件分发机制》 | ✅ 已发布 |
-| 11 | view | 《View 绘制流程：measure / layout / draw》 | ✅ 已发布 |
-| 12 | classloader | 《类加载机制：ClassLoader 与双亲委派》 | ✅ 已发布 |
+| 04 | binder | 《Binder 连接池与多线程并发》 | ✅ 已发布 |
+| 05 | binder | 《AIDL 深入：in/out/inout 与 Parcelable》 | ✅ 已发布 |
+| 06 | binder | 《Binder 的 oneway 异步调用》 | ✅ 已发布 |
+| 07 | handler | 《Handler 消息机制：从 Looper 到 MessageQueue》 | ✅ 已发布 |
+| 08 | handler | 《消息队列与 IdleHandler》 | ✅ 已发布 |
+| 09 | handler | 《同步屏障与异步消息》 | ✅ 已发布 |
+| 10 | handler | 《HandlerThread 与 IntentService》 | ✅ 已发布 |
+| 11 | handler | 《Looper 的退出与消息循环的边界》 | ✅ 已发布 |
+| 12 | handler | 《主线程卡顿检测与 BlockCanary 原理》 | ✅ 已发布 |
+| 13 | ams-wms | 《AMS 启动流程解析》 | ✅ 已发布 |
+| 14 | ams-wms | 《WMS 窗口管理解析》 | ✅ 已发布 |
+| 15 | ams-wms | 《Choreographer 与渲染机制》 | ✅ 已发布 |
+| 16 | view | 《View 事件分发机制》 | ✅ 已发布 |
+| 17 | view | 《View 绘制流程：measure / layout / draw》 | ✅ 已发布 |
+| 18 | classloader | 《类加载机制：ClassLoader 与双亲委派》 | ✅ 已发布 |
 
 ## 🚀 阅读建议
 
