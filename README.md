@@ -50,7 +50,8 @@ Framework-Source-Note/
 | 04 | handler | 《同步屏障与异步消息》 | ✅ 已发布 |
 | 05 | ams-wms | 《AMS 启动流程解析》 | ✅ 已发布 |
 | 06 | ams-wms | 《WMS 窗口管理解析》 | ✅ 已发布 |
-| 07 | ams-wms | 《Choreographer 与渲染机制》 | 📋 规划中 |
+| 07 | ams-wms | 《Choreographer 与渲染机制》 | ✅ 已发布 |
+| 08 | binder | 《Binder 驱动层深入》 | 📋 规划中 |
 
 ## 🚀 阅读建议
 
