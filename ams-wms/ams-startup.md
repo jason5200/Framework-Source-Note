@@ -2,6 +2,7 @@
 
 > 系列：Framework-Source-Note · ams-wms
 > 难度：⭐⭐⭐⭐ 深入
+> 更新：2026-08-21
 > 前置知识：Binder 机制、系统启动流程
 
 ---
@@ -65,34 +66,20 @@ private void startBootstrapServices() {
 
 这是 AMS 最核心的工作。以 App 点击按钮启动一个 Activity 为例：
 
-```
-1. App 调用 startActivity()
-        │
-        ▼
-2. ActivityStarter（客户端侧）打包请求
-        │  Binder 跨进程
-        ▼
-3. AMS.startActivity()（system_server 侧）
-        │
-        ▼
-4. ActivityStarter 解析 Intent、检查权限、解析任务栈
-        │
-        ▼
-5. 决定是否新建进程：
-        ├── 已有进程 → 直接通知启动
-        └── 无进程 → 通过 socket 通知 Zygote fork 新进程
-        │
-        ▼
-6. 新进程启动后，ActivityThread.main() 执行
-        │
-        ▼
-7. 通过 ApplicationThread（Binder）与 AMS 通信
-        │
-        ▼
-8. AMS 调度 Activity 生命周期：onCreate → onStart → onResume
-        │
-        ▼
-9. 界面显示
+```mermaid
+sequenceDiagram
+    participant App as App进程
+    participant AMS as AMS(system_server)
+    participant Z as Zygote
+    participant New as 新进程
+    App->>AMS: 1. startActivity() (Binder)
+    AMS->>AMS: 2. 解析Intent/权限/任务栈
+    AMS->>Z: 3. socket 通知 fork 新进程
+    Z->>New: 4. fork 出应用进程
+    New->>New: 5. ActivityThread.main()
+    New->>AMS: 6. ApplicationThread 回连 (Binder)
+    AMS->>New: 7. 调度 onCreate/onStart/onResume
+    New->>New: 8. 界面显示
 ```
 
 ## 五、进程启动：AMS 与 Zygote 的配合

@@ -2,6 +2,7 @@
 
 > 系列：Framework-Source-Note · binder
 > 难度：⭐⭐⭐⭐ 深入
+> 更新：2026-08-17
 > 前置知识：《Binder 机制总览》
 
 ---

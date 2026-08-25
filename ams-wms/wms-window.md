@@ -2,6 +2,7 @@
 
 > 系列：Framework-Source-Note · ams-wms
 > 难度：⭐⭐⭐⭐ 深入
+> 更新：2026-08-22
 > 前置知识：《AMS 启动流程解析》、Surface 基础
 
 ---

@@ -2,6 +2,7 @@
 
 > 系列：Framework-Source-Note · handler
 > 难度：⭐⭐⭐ 进阶
+> 更新：2026-08-18
 > 前置知识：Binder 基础、线程基础
 
 ---

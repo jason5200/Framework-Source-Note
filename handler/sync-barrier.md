@@ -2,6 +2,7 @@
 
 > 系列：Framework-Source-Note · handler
 > 难度：⭐⭐⭐⭐ 深入
+> 更新：2026-08-20
 > 前置知识：《Handler 消息机制》
 
 ---

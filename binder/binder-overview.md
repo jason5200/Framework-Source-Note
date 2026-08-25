@@ -2,6 +2,7 @@
 
 > 系列：Framework-Source-Note · binder
 > 难度：⭐⭐⭐ 进阶
+> 更新：2026-08-16
 > 前置知识：Linux 进程基础、Android 四大组件
 
 ---
@@ -33,16 +34,24 @@ Linux 本身就有多种 IPC：管道、信号、Socket、共享内存、消息�
 
 ## 三、Binder 的四层架构
 
-```
-┌─────────────────────────────────────────────┐
-│  Java 层：Binder / IBinder / AIDL           │
-├─────────────────────────────────────────────┤
-│  Native 层：BpBinder / BBinder / ProcessState│
-├─────────────────────────────────────────────┤
-│  内核层：/dev/binder 驱动                    │
-├─────────────────────────────────────────────┤
-│  硬件：Linux Kernel                          │
-└─────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph App["应用层"]
+        A["App 开发者（AIDL 接口）"]
+    end
+    subgraph Java["Java 层"]
+        B["Binder / IBinder / AIDL"]
+    end
+    subgraph Native["Native 层"]
+        C["BpBinder / BBinder / ProcessState"]
+    end
+    subgraph Kernel["内核层"]
+        D["/dev/binder 驱动"]
+    end
+    subgraph HW["硬件层"]
+        E["Linux Kernel"]
+    end
+    A --> B --> C --> D --> E
 ```
 
 **关键点**：
@@ -61,12 +70,19 @@ Linux 本身就有多种 IPC：管道、信号、Socket、共享内存、消息�
 
 一个典型的调用流程：
 
-```
-1. Server 向 ServiceManager 注册："我叫 AMS，找我请拨 0x123"
-2. Client 向 ServiceManager 查询："AMS 怎么联系？"
-3. ServiceManager 返回 AMS 的 Binder 引用（句柄）
-4. Client 通过句柄直接调用 AMS 的方法
-5. Binder 驱动完成跨进程数据传递
+```mermaid
+sequenceDiagram
+    participant S as Server(AMS)
+    participant SM as ServiceManager
+    participant C as Client(App)
+    participant D as Binder驱动
+    S->>SM: 1. 注册服务 "我叫 AMS"
+    C->>SM: 2. 查询 "AMS 怎么联系？"
+    SM-->>C: 3. 返回 Binder 句柄
+    C->>D: 4. 通过句柄调用 AMS 方法
+    D->>S: 5. 跨进程传递数据
+    S-->>D: 6. 返回结果
+    D-->>C: 7. 结果送达
 ```
 
 ## 五、AIDL 与 Proxy/Stub 模式

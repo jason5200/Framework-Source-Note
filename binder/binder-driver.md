@@ -2,6 +2,7 @@
 
 > 系列：Framework-Source-Note · binder
 > 难度：⭐⭐⭐⭐⭐ 深入
+> 更新：2026-08-23
 > 前置知识：《Binder 机制总览》《一次 Binder 通信的完整流程》
 
 ---
