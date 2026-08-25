@@ -66,6 +66,12 @@ Framework-Source-Note/
 | 16 | view | 《View 事件分发机制》 | ✅ 已发布 |
 | 17 | view | 《View 绘制流程：measure / layout / draw》 | ✅ 已发布 |
 | 18 | classloader | 《类加载机制：ClassLoader 与双亲委派》 | ✅ 已发布 |
+| 19 | component | 《Activity 启动模式与任务栈》 | ✅ 已发布 |
+| 20 | component | 《Activity 生命周期与异常恢复》 | ✅ 已发布 |
+| 21 | component | 《Service 的启动与绑定机制》 | ✅ 已发布 |
+| 22 | component | 《BroadcastReceiver 的动态注册与分发》 | ✅ 已发布 |
+| 23 | component | 《ContentProvider 的原理与使用》 | ✅ 已发布 |
+| 24 | component | 《Window 与 WindowManager 体系》 | ✅ 已发布 |
 
 ## 🚀 阅读建议
 
