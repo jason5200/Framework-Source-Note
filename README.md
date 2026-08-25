@@ -47,7 +47,7 @@ Framework-Source-Note/
 | 01 | binder | 《Binder 机制总览：为什么 Android 用它做 IPC》 | ✅ 已发布 |
 | 02 | binder | 《一次 Binder 通信的完整流程》 | ✅ 已发布 |
 | 03 | handler | 《Handler 消息机制：从 Looper 到 MessageQueue》 | ✅ 已发布 |
-| 04 | handler | 《同步屏障与异步消息》 | 📋 规划中 |
+| 04 | handler | 《同步屏障与异步消息》 | ✅ 已发布 |
 | 05 | ams-wms | 《AMS 启动流程解析》 | 📋 规划中 |
 
 ## 🚀 阅读建议
