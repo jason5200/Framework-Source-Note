@@ -72,6 +72,12 @@ Framework-Source-Note/
 | 22 | component | 《BroadcastReceiver 的动态注册与分发》 | ✅ 已发布 |
 | 23 | component | 《ContentProvider 的原理与使用》 | ✅ 已发布 |
 | 24 | component | 《Window 与 WindowManager 体系》 | ✅ 已发布 |
+| 25 | view | 《View 的 invalidate 与 requestLayout》 | ✅ 已发布 |
+| 26 | view | 《滑动冲突的完整解决方案》 | ✅ 已发布 |
+| 27 | view | 《RecyclerView 缓存与复用机制》 | ✅ 已发布 |
+| 28 | ams-wms | 《内存泄漏与 LeakCanary 原理》 | ✅ 已发布 |
+| 29 | ams-wms | 《ANR 原理与排查方法》 | ✅ 已发布 |
+| 30 | classloader | 《热修复原理深入：Tinker 与 Sophix》 | ✅ 已发布 |
 
 ## 🚀 阅读建议
 
