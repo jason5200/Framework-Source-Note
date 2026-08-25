@@ -51,33 +51,35 @@ Framework-Source-Note/
 | 01 | binder | 《Binder 机制总览：为什么 Android 用它做 IPC》 | ✅ 已发布 |
 | 02 | binder | 《一次 Binder 通信的完整流程》 | ✅ 已发布 |
 | 03 | binder | 《Binder 驱动层深入》 | ✅ 已发布 |
-| 04 | binder | 《Binder 连接池与多线程并发》 | ✅ 已发布 |
-| 05 | binder | 《AIDL 深入：in/out/inout 与 Parcelable》 | ✅ 已发布 |
-| 06 | binder | 《Binder 的 oneway 异步调用》 | ✅ 已发布 |
-| 07 | handler | 《Handler 消息机制：从 Looper 到 MessageQueue》 | ✅ 已发布 |
-| 08 | handler | 《消息队列与 IdleHandler》 | ✅ 已发布 |
-| 09 | handler | 《同步屏障与异步消息》 | ✅ 已发布 |
-| 10 | handler | 《HandlerThread 与 IntentService》 | ✅ 已发布 |
-| 11 | handler | 《Looper 的退出与消息循环的边界》 | ✅ 已发布 |
-| 12 | handler | 《主线程卡顿检测与 BlockCanary 原理》 | ✅ 已发布 |
-| 13 | ams-wms | 《AMS 启动流程解析》 | ✅ 已发布 |
-| 14 | ams-wms | 《WMS 窗口管理解析》 | ✅ 已发布 |
-| 15 | ams-wms | 《Choreographer 与渲染机制》 | ✅ 已发布 |
-| 16 | view | 《View 事件分发机制》 | ✅ 已发布 |
-| 17 | view | 《View 绘制流程：measure / layout / draw》 | ✅ 已发布 |
-| 18 | classloader | 《类加载机制：ClassLoader 与双亲委派》 | ✅ 已发布 |
-| 19 | component | 《Activity 启动模式与任务栈》 | ✅ 已发布 |
-| 20 | component | 《Activity 生命周期与异常恢复》 | ✅ 已发布 |
-| 21 | component | 《Service 的启动与绑定机制》 | ✅ 已发布 |
-| 22 | component | 《BroadcastReceiver 的动态注册与分发》 | ✅ 已发布 |
-| 23 | component | 《ContentProvider 的原理与使用》 | ✅ 已发布 |
-| 24 | component | 《Window 与 WindowManager 体系》 | ✅ 已发布 |
-| 25 | view | 《View 的 invalidate 与 requestLayout》 | ✅ 已发布 |
-| 26 | view | 《滑动冲突的完整解决方案》 | ✅ 已发布 |
-| 27 | view | 《RecyclerView 缓存与复用机制》 | ✅ 已发布 |
-| 28 | ams-wms | 《内存泄漏与 LeakCanary 原理》 | ✅ 已发布 |
-| 29 | ams-wms | 《ANR 原理与排查方法》 | ✅ 已发布 |
-| 30 | classloader | 《热修复原理深入：Tinker 与 Sophix》 | ✅ 已发布 |
+| 04 | binder | 《Binder mmap 一次拷贝的完整源码》 | ✅ 已发布 |
+| 05 | binder | 《Binder 连接池与多线程并发》 | ✅ 已发布 |
+| 06 | binder | 《AIDL 深入：in/out/inout 与 Parcelable》 | ✅ 已发布 |
+| 07 | binder | 《Binder 的 oneway 异步调用》 | ✅ 已发布 |
+| 08 | handler | 《Handler 消息机制：从 Looper 到 MessageQueue》 | ✅ 已发布 |
+| 09 | handler | 《Handler native 层唤醒机制》 | ✅ 已发布 |
+| 10 | handler | 《消息队列与 IdleHandler》 | ✅ 已发布 |
+| 11 | handler | 《同步屏障与异步消息》 | ✅ 已发布 |
+| 12 | handler | 《HandlerThread 与 IntentService》 | ✅ 已发布 |
+| 13 | handler | 《Looper 的退出与消息循环的边界》 | ✅ 已发布 |
+| 14 | handler | 《主线程卡顿检测与 BlockCanary 原理》 | ✅ 已发布 |
+| 15 | ams-wms | 《AMS 启动流程解析》 | ✅ 已发布 |
+| 16 | ams-wms | 《WMS 窗口管理解析》 | ✅ 已发布 |
+| 17 | ams-wms | 《Choreographer 与渲染机制》 | ✅ 已发布 |
+| 18 | view | 《View 事件分发机制》 | ✅ 已发布 |
+| 19 | view | 《View 绘制流程：measure / layout / draw》 | ✅ 已发布 |
+| 20 | classloader | 《类加载机制：ClassLoader 与双亲委派》 | ✅ 已发布 |
+| 21 | component | 《Activity 启动模式与任务栈》 | ✅ 已发布 |
+| 22 | component | 《Activity 生命周期与异常恢复》 | ✅ 已发布 |
+| 23 | component | 《Service 的启动与绑定机制》 | ✅ 已发布 |
+| 24 | component | 《BroadcastReceiver 的动态注册与分发》 | ✅ 已发布 |
+| 25 | component | 《ContentProvider 的原理与使用》 | ✅ 已发布 |
+| 26 | component | 《Window 与 WindowManager 体系》 | ✅ 已发布 |
+| 27 | view | 《View 的 invalidate 与 requestLayout》 | ✅ 已发布 |
+| 28 | view | 《滑动冲突的完整解决方案》 | ✅ 已发布 |
+| 29 | view | 《RecyclerView 缓存与复用机制》 | ✅ 已发布 |
+| 30 | ams-wms | 《内存泄漏与 LeakCanary 原理》 | ✅ 已发布 |
+| 31 | ams-wms | 《ANR 原理与排查方法》 | ✅ 已发布 |
+| 32 | classloader | 《热修复原理深入：Tinker 与 Sophix》 | ✅ 已发布 |
 
 ## 🚀 阅读建议
 
