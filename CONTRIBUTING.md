@@ -22,6 +22,11 @@
 6. 推送：`git push origin feature/你的改动`
 7. 发起 **Pull Request**
 
+## 内容规范
+
+- 源码路径默认对照 [AOSP_VERSION.md](AOSP_VERSION.md)。
+- 提 PR 时写明你核对用的 AOSP 标签；行号变化请直接改文中路径。
+
 ## 提交信息规范
 
 遵循 Conventional Commits 风格：
