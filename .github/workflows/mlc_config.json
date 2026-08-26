@@ -2,6 +2,12 @@
   "ignorePatterns": [
     {
       "pattern": "^https://github.com/jason5200"
+    },
+    {
+      "pattern": "^https://cs.android.com"
+    },
+    {
+      "pattern": "^https://img.shields.io"
     }
   ],
   "replacementPatterns": [],
